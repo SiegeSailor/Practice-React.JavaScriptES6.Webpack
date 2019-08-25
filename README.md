@@ -1,2 +1,2 @@
-# progressbar-react-es6-webpack
-Practice for React, ES6, and WebPack from ProgressBar.
+# React 與 ES6 與 WebPack
+進度條 ProgressBar 課程。
