@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11-ModuleImportExport</title>
+</head>
+
+<body>
+    <!-- 當一個 JS 的內容是提供給特定 JS 用的 function, class 時，不適合直接載入，這有可能導致在直接應用下的錯誤，並且提高耦合性 -->
+    <!-- <script src="./11-ModuleImportExportLibrary.js" type="text/javascript"></script> -->
+    <!-- 查看此 ModuleImportExport.js 檔，會發現此 JS 檔使用 import 導入上一個 JS -->
+    <!-- 注意 type，使用到 import 語法的 JS 檔的 type 必須為 module。module 的 js 載入時為異步載入。 -->
+    <script src="./11-ModuleImportExport.js" type="module"></script>
+    <script>
+        // 當想在 xml 中使用 module 的 class 時，需注意該 class 是否有使用 window 宣告。然而，這極度提高了耦合性，非常不適合。
+        document.addEventListener('DOMContentLoaded', () => {
+            // 並且，由於 module 為異步，需使用 DOMContentLoaded 才能取得該 class
+            const messageSub = new MessageSub();
+        })
+    </script>
+
+    <!-- 正確的 ES6 作法，在 xml 中宣告一 module 的 script 區塊，並 import 相關要使用的 js -->
+    <!-- 如此一來，上方也不需要載入 script 了，因為會重複載入 -->
+    <script type="module">
+        import MessageSub from './11-ModuleImportExport.js';
+        const messageSub = new MessageSub();
+    </script>
+</body>
+
+</html>
