@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12-ImportExportDefault</title>
+</head>
+
+<body>
+</body>
+<script type="module">
+    import * as math from './12-ImportExportDefaultLibrary.js'
+    console.log(`2 pi = ${math.sum(math.pi, math.pi)}`)
+
+    import {sum, pi} from './12-ImportExportDefaultLibrary.js'
+    console.log(`2 pi = ${sum(pi, pi)}`)
+</script>
+
+</html>
