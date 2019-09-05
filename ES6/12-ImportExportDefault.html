@@ -14,8 +14,25 @@
     import * as math from './12-ImportExportDefaultLibrary.js'
     console.log(`2 pi = ${math.sum(math.pi, math.pi)}`)
 
+    // # 當以 object 直接匯入時，若匯入物為 export，需以 object 的 {} 包裹，即使只有一個
     import {sum, pi} from './12-ImportExportDefaultLibrary.js'
     console.log(`2 pi = ${sum(pi, pi)}`)
+
+    // # 當以 object 直接匯入時，若匯入物為 export default，則不需 {}
+    // import string from './12-ImportExportDefaultLibrary.js'
+    // console.log(`string is ${string}`);
+
+    // # 前兩者可以用 , 一同匯入。注意一定要先 default(沒有{}) 的在前面
+    // import string, {sum, pi} from './12-ImportExportDefaultLibrary.js'
+    // console.log(`${string}, ${sum(pi, pi)}`);
+
+    // # 也可以直接 object 匯入和 object 從屬匯入一起
+    import string, * as Math from './12-ImportExportDefaultLibrary.js';
+    console.log(`${string}`, Math.sum)
+
+    // 注意代表 default 的 variable 名稱可以隨意取，因為是代表單一的 default
+    import WhatEver from './12-ImportExportDefault.js';
+    let WhatWho = new WhatEver();
 </script>
 
 </html>
