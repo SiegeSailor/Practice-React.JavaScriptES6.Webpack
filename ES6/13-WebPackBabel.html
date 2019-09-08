@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>13-WebPackBabel</title>
+    <!-- 經 Babel 編譯後仍無法直接使用，需藉助 Webpack。 -->
+    <!-- <script src="../ES6BabelCompiled/13-WebPackBabel.js" type="module"></script> -->
+</head>
+
+<body>
+    <h3>使用 Babel。在 package.json 中</h3>
+    <p><code>npm init -y</code></p>
+    <p>拿掉 <code>"main": "index.js",</code>，因為這並不是 Node.JS 的專案。</p>
+    <p><code>npm install --save-dev @babel/core @babel/cli</code></p>
+    <p>若有使用 WebPack，則不需 <code>"@babel/cli": "^7.6.0",</code>。</p>
+    <p><code>npm install @babel/preset-env --save-dev</code></p>
+    <p><code>touch .babelrc</code></p>
+    <p>在 <code>.babelrc</code> 中輸入：</p>
+    <p><code>{
+            "presets": ["@babel/preset-env"]
+            }</code></p>
+    <br>
+    <h3>過程中，Babel 需要</h3>
+    <p>過程中發現，class 需要 plugin，照指示走：</p>
+    <p><code>npm install @babel/plugin-proposal-class-properties --save-dev</code></p>
+    <p>在 <code>.babelrc</code> 中，輸入：</p>
+    <p><code>{
+            "presets": ["@babel/preset-env"],
+            "plugins": ["@babel/plugin-proposal-class-properties"]
+            }</code></p>
+    <br>
+    <h3>Babel 編譯後的引用</h3>
+    <p>使用 script 引入編譯後的 ES6 JavaScript，無論是用 script 標籤在 head 中引入後在 body 中使用 script 標籤中宣告使用，或是在 type 是 module 的 script 區塊中
+        import 後，都無法使用。
+    </p>
+    <p>在這裡的例子是因為編譯後出現一個叫做 exports 的語法，然而，無論在哪都沒有宣告這個全域函數，從而導致 ES6 編譯後的 JavaScript 完全無法使用Ｆ</p>
+    <p>為了解決這種編譯後仍無法使用的問題，我們必須使用 Webpack。</p>
+    <!-- 經 Babel 編譯後仍無法直接使用，需藉助 Webpack。 -->
+    <!-- <script type="module">
+        import BabelNeedsWebpack from "../ES6BabelCompiled/13-WebPackBabel.js";
+    const fromBabel = new BabelNeedsWebpack();
+    </script> -->
+    <br>
+    <h3>使用 Webpack</h3>
+    <p>先安裝 Webpack。</p>
+    <p><code>npm install webpack --save-dev</code></p>
+    <p><code>npm install webpack-cli --save-dev</code></p>
+    <p>再安裝 Babel 的 loader。</p>
+    <p><code>npm install -D babel-loader @babel/core @babel/preset-env webpack</code></p>
+    <p>再來，在根目錄新創一檔案 webpack.config.js。設定見該檔本身。</p>
+    <p>再去 package.json 更改 script。設定見該檔本身。</p>
+    <p>先在 13-WebPackBabel.js 中使用不正確的 window 指定方式來加入 class</p>
+    <p>npm run webpack-build (見 package.json)</p>
+    <p>再在 HTML 中利用 script 標籤使用該 class ( 見 HTML )</p>
+    <script src="../ES6BabelCompiled/13-WebPackBabel.js"></script>
+    <script>
+        // const babelNeedsWebpack = new BabelNeedsWebpack();
+
+        // 在 13-WebPackBabel.js 中 import 三個相互有 import 與 export 的 JS 後，嘗試在 class 內掛上一個來自其他檔案的
+        // function，並在這使用。
+        // 記得編譯前檢查 webpack.config.js，在 babel loader 中的 options 內需加上：
+        // plugins: ["@babel/plugin-proposal-class-properties"]
+        // 如本節開始時所發現的，加在 .babelrc 也有效果，但統一在 webpack.config.js 中是較好的選擇
+
+        // babelNeedsWebpack.echoSummonsFromEcho();
+    </script>
+    <!-- 確認編譯後成功匯入，將 window 掛載的使用移除將 const babelNeedsWebpack = new BabelNeedsWebpack(); 移到該 js 內，  -->
+    <!-- 並且使用 DOMContentLoaded 的方法確保在整個 DOM Load 完後執行，以避免抓取不到 DOM 元素的情形。 -->
+    <!-- 這也代表了直接在 XML 中取得各 JS 檔內的值並執行的情況是不可能的。 -->
+</body>
+
+</html>
