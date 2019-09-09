@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!***************************************!*\
   !*** ./ES6/13-WebPackBabelLibrary.js ***!
   \***************************************/
-/*! exports provided: sum, pi, echo, default */
+/*! exports provided: default, sum, pi, echo */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
