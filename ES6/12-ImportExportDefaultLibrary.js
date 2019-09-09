@@ -17,3 +17,5 @@ export const pi = 3.14;
 // }
 const string = `I am ${pi}`;
 export default string;
+
+console.log('12-ImportExportDefalutLivbrary.js 來的。')
