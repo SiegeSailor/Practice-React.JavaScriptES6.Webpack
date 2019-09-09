@@ -1,0 +1,30 @@
+{
+  "name": "ReactES6WebPack",
+  "version": "1.0.0",
+  "description": "進度條 ProgressBar 課程。",
+  "scripts": {
+    "babel-build": "babel ES6 -d ES6BabelCompiled",
+    "webpack-build": "webpack --mode=development",
+    "webpack-watch": "webpack -w --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiegeSailor/progressbar-react-es6-webpack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SiegeSailor/progressbar-react-es6-webpack/issues"
+  },
+  "homepage": "https://github.com/SiegeSailor/progressbar-react-es6-webpack#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  }
+}
