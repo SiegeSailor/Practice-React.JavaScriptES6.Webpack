@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./3-VirtualDOM.jsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./4-VirtualDOM.jsx");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./3-VirtualDOM.jsx":
+/***/ "./4-VirtualDOM.jsx":
 /*!**************************!*\
-  !*** ./3-VirtualDOM.jsx ***!
+  !*** ./4-VirtualDOM.jsx ***!
   \**************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("console.log(\"VirtualDOM\");\n\n//# sourceURL=webpack:///./3-VirtualDOM.jsx?");
+eval("ReactDOM.render(React.createElement(\"h1\", null, \"Hello World\"), document.getElementById('root'));\n\n//# sourceURL=webpack:///./4-VirtualDOM.jsx?");
 
 /***/ })
 

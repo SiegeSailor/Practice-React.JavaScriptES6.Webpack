@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4-VirtualDOM</title>
+</head>
+
+<body>
+    <div id="root" name="title"></div>
+    <div id="main"></div>
+    <div id="advanced"></div>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load our React component. -->
+
+    <!-- ## 使用 React 的方法編寫，見 4-VirtualDOM.jsx -->
+    <script src="./4-VirtualDOM.js"></script>
+
+    <!-- ## Babel 編譯完後的方法 -->
+    <script>
+        // ## 以 render 一個 createElement 為範例，將此 function 拆為 object 的 key value，創造 DOM 的 function，
+        // 以及 render 出 DOM 的 function
+        ReactDOM.render(
+            React.createElement(
+                "h1",
+                null,
+                "Hello World"),
+            document.getElementById('root')
+        );
+    </script>
+
+    <!-- ## 用一般 JavaScript 解釋的做法 -->
+    <script>
+        // # 一般而言，我們用這樣的方法取得一個 DOM
+        let rootDOM = document.getElementById('root');
+        // 如此一來，我們就能得到他的屬性
+        rootDOM.getAttribute('name'); // 出現 "title"
+
+        // # 然而，rootDOM 是一個 object，我們可以這樣取得他的屬性
+        rootDOM.attributes['name'];
+        // 以此為概念，rootDOM 是一個這樣子的 object
+        let rootDOMObject = {
+            node: `div`,
+            id: `root-object`,
+            name: `title`,
+            content: `root-object-content`,
+        }
+        // 因此，我們可以用這樣一個 object 內的 function 去帶入 rootDOM 這個 object 來創造一個 DOM
+        // 如果將 createDOM 換成 React，就變成了 React.createElement()，是一樣的概念
+        let createDOM = {
+            createElement(node) {
+                let newElement = document.createElement(node.node);
+                newElement.setAttribute(`id`, node.id);
+                newElement.setAttribute(`name`, node.name);
+                newElement.innerHTML = node.content;
+                return newElement;
+            }
+        }
+        let main = document.getElementById(`main`);
+        main.append(createDOM.createElement(rootDOMObject));
+
+        // 上方原生 React.createElement 的進階版本
+        let rootDOmObjectAdvanced = {
+            node: `div`,
+            attributes: {
+                id: `root-object-advanced`,
+                name: `title`,
+            },
+            content: `root-object-content-advanced`
+        };
+        let createDOMAdvanced = {
+            createElement({
+                node,
+                attributes,
+                content
+            }) {
+                let newElement = document.createElement(node);
+                // 這段的意思是，用 Object.keys 取出 attributes 裡面所有的 key，變成一個陣列
+                // 再用 forEach 對所有的 key 用 attributes 取得 value
+                Object.keys(attributes).forEach((key) => {
+                    // 令人不解的是，Object.keys 已令 attributes 變成一個單純只有 key 的陣列，為何這邊還能用
+                    // key value 專用的 attributes 來取得這個陣列的 value
+                    // 只能解釋，雖然這邊是用 Object.keys 來取得 attributes 的 key，但事實上後面的 forEach 仍然是
+                    // 對應回 attribute 這個 object，Object.keys 只是給 forEach 一個使用的閥
+                    const value = attributes[key];
+                    newElement.setAttribute(key, value);
+                });
+                newElement.innerHTML = content;
+                return newElement;
+            }
+        }
+        let advanced = document.getElementById(`advanced`);
+        advanced.append(createDOMAdvanced.createElement(rootDOmObjectAdvanced));
+    </script>
+</body>
+
+</html>

@@ -28,14 +28,14 @@ module.exports = {
 };
 
 module.exports = {
-    entry: './3-VirtualDOM.jsx',
+    entry: './4-VirtualDOM.jsx',
     output: {
-        filename: '3-VirtualDOM.js',
+        filename: '4-VirtualDOM.js',
         path: path.resolve(__dirname, './'),
 
     },
     // 以下的 module 來自 webpack 官網的 babel loader 設定
-    // 3-VirtualDOM
+    // 4-VirtualDOM
     module: {
         rules: [{
             test: /\.jsx?$/,
