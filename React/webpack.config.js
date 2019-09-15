@@ -51,3 +51,28 @@ module.exports = {
         }]
     }
 };
+
+module.exports = {
+    entry: './5-ReactComponent.jsx',
+    output: {
+        filename: '5-ReactComponent.js',
+        path: path.resolve(__dirname, './'),
+
+    },
+    // 以下的 module 來自 webpack 官網的 babel loader 設定
+    // 5-ReactComponent
+    module: {
+        rules: [{
+            test: /\.jsx?$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    // 注意這裡有針對 react 的 preset
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                    plugins: ["@babel/plugin-proposal-class-properties"]
+                }
+            }
+        }]
+    }
+};

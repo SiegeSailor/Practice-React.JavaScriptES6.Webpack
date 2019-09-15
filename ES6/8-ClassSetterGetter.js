@@ -33,6 +33,7 @@ class ClassES6 {
     }
     // function 不用另外宣告定義，因為是在 class 中，已經默認宣告在該 class 下了
     log = function () {
+        console.log(`log in class ClassES6`)
         console.log("log variableOne", this.one)
         console.log("log variableTwo", this.two)
     }
