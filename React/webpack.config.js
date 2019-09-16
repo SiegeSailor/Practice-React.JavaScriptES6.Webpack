@@ -53,14 +53,14 @@ module.exports = {
 };
 
 module.exports = {
-    entry: './5-ReactComponent.jsx',
+    entry: './5-Props.jsx',
     output: {
-        filename: '5-ReactComponent.js',
+        filename: '5-Props.js',
         path: path.resolve(__dirname, './'),
 
     },
     // 以下的 module 來自 webpack 官網的 babel loader 設定
-    // 5-ReactComponent
+    // 5-Props
     module: {
         rules: [{
             test: /\.jsx?$/,
