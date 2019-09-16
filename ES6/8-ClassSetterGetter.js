@@ -99,7 +99,7 @@ class GetterSetter extends ClassES6 {
     }
 }
 console.log(new GetterSetter(1, 2, 3))
-// 若是 get function，則不虛 ()，因為他並非真的 function，而是一種取值的值
+// 若是 get function，則不需 ()，因為他並非真的 function，而是一種取值的值
 console.log(new GetterSetter(1, 2, 3).three)
 // class 當作 object 看待時也可直接掛載值
 GetterSetter.other = `other`
