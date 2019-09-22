@@ -1,9 +1,9 @@
 {
-  "name": "ReactES6WebPack",
+  "name": "progressbar-es6",
   "version": "1.0.0",
   "description": "進度條 ProgressBar 課程。",
   "scripts": {
-    "babel-build": "babel ES6 -d ES6BabelCompiled",
+    "babel-build": "babel ./ -d ES6BabelCompiled/",
     "webpack-build": "webpack --mode=development",
     "webpack-watch": "webpack -w --mode=development"
   },

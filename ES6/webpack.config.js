@@ -3,7 +3,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './ES6/13-WebPackBabel.js',
+    entry: './13-WebPackBabel.js',
     output: {
         filename: '13-WebPackBabel.js',
         path: path.resolve(__dirname, 'ES6BabelCompiled'),
