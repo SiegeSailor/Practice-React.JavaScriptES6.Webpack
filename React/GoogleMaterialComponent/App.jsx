@@ -1,6 +1,8 @@
 import AddressPicker from './AddressPicker.jsx'
 import ReceiptType from './ReceiptType.jsx'
 import TaiwanPostalCode from './TaiwanPostalCode.json'
+import React from 'react';
+import Button from '@material/react-button';
 
 class App extends React.Component {
     constructor(props) {
@@ -24,7 +26,9 @@ class App extends React.Component {
 
     // 由於 state 在本層，因此在此曾撰寫 handler 並傳送到下層們
     handler = (name, value) => {
-        this.setState({ [name]: value }, () => {
+        this.setState({
+            [name]: value
+        }, () => {
             console.log(this.state)
         })
     }
@@ -41,7 +45,7 @@ class App extends React.Component {
     }
 
     checkIsAddressReady = () => {
-        const { city, district, postalCode, address } = this.state.fullAddress
+        const {city, district, postalCode, address} = this.state.fullAddress
         if (city != "" && district != "" && postalCode != "" && address != "") {
             return true
         }
@@ -58,20 +62,18 @@ class App extends React.Component {
             <form>
                 {/* 將下層需要的 state 傳入，這樣等於是用 props 傳入。由於現在 state 在外層， */}
                 {/* 因此 handler 也放在外層，與 state 一起。 */}
-                <ReceiptType
-                    handler={this.handler}
-                    receipt={this.state.receipt}
-                />
-                <hr />
+                <ReceiptType handler={this.handler} receipt={this.state.receipt}/>
+                <br/>
                 <AddressPicker
                     handler={this.handler}
                     fullAddress={this.state.fullAddress}
-                    taiwanPostalCodes={TaiwanPostalCode}
-                />
-                <button type="submit" disabled={!this.isReady()}>Submit</button>
+                    taiwanPostalCodes={TaiwanPostalCode}/>
+                <br/>
+                <Button type="submit" outlined={true} disabled={!this.isReady()}>Submit</Button>
             </form>
         )
     }
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(
+    <App/>, document.getElementById("app"));
