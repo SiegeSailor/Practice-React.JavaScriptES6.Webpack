@@ -3,6 +3,7 @@ import ReceiptType from './ReceiptType.jsx'
 import TaiwanPostalCode from './TaiwanPostalCode.json'
 import React from 'react';
 import Button from '@material/react-button';
+import { Cell, Grid, Row } from '@material/react-layout-grid';
 
 class App extends React.Component {
     constructor(props) {
@@ -45,7 +46,7 @@ class App extends React.Component {
     }
 
     checkIsAddressReady = () => {
-        const {city, district, postalCode, address} = this.state.fullAddress
+        const { city, district, postalCode, address } = this.state.fullAddress
         if (city != "" && district != "" && postalCode != "" && address != "") {
             return true
         }
@@ -60,20 +61,39 @@ class App extends React.Component {
         console.log("App render")
         return (
             <form>
-                {/* 將下層需要的 state 傳入，這樣等於是用 props 傳入。由於現在 state 在外層， */}
-                {/* 因此 handler 也放在外層，與 state 一起。 */}
-                <ReceiptType handler={this.handler} receipt={this.state.receipt}/>
-                <br/>
-                <AddressPicker
-                    handler={this.handler}
-                    fullAddress={this.state.fullAddress}
-                    taiwanPostalCodes={TaiwanPostalCode}/>
-                <br/>
-                <Button type="submit" outlined={true} disabled={!this.isReady()}>Submit</Button>
+                <Grid>
+                    <Row>
+                        {/* 當使用 column 時，會蓋掉其他所有指定設備的寬度，因此當使用到 phone, tablet
+                        等時，必須一起使用 desktop, phone, tablet */}
+                        <Cell desktopColumns={3} phoneColumns={0} tabletColumns={1}></Cell>
+                        {/* 將下層需要的 state 傳入，這樣等於是用 props 傳入。由於現在 state 在外層， */}
+                        {/* 因此 handler 也放在外層，與 state 一起。 */}
+                        <Cell desktopColumns={6} phoneColumns={4} tabletColumns={6}>
+                            <ReceiptType handler={this.handler} receipt={this.state.receipt} />
+                            <br />
+                        </Cell>
+                        <Cell desktopColumns={3} phoneColumns={0} tabletColumns={1}></Cell>
+                    </Row>
+                    <Row>
+                        <Cell desktopColumns={3} phoneColumns={0} tabletColumns={1}></Cell>
+                        <Cell desktopColumns={6} phoneColumns={4} tabletColumns={6}><AddressPicker
+                            handler={this.handler}
+                            fullAddress={this.state.fullAddress}
+                            taiwanPostalCodes={TaiwanPostalCode} />
+                            <br></br>
+                        </Cell>
+                        <Cell desktopColumns={3} phoneColumns={0} tabletColumns={1}></Cell>
+                    </Row>
+                    <Row>
+                        <Cell desktopColumns={3} phoneColumns={0} tabletColumns={1}></Cell>
+                        <Cell desktopColumns={6} phoneColumns={4} tabletColumns={6}><Button type="submit" outlined={true} disabled={!this.isReady()}>Submit</Button></Cell>
+                        <Cell desktopColumns={3} phoneColumns={0} tabletColumns={1}></Cell>
+                    </Row>
+                </Grid>
             </form>
         )
     }
 }
 
 ReactDOM.render(
-    <App/>, document.getElementById("app"));
+    <App />, document.getElementById("app"));
