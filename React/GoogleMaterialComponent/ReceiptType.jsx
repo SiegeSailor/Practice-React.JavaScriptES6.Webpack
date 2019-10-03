@@ -14,6 +14,8 @@ import TextField, { HelperText, Input } from '@material/react-text-field';
 class ReceiptType extends React.Component {
 
     componentDidMount = () => {
+        // 這是既定的函式，是指 DOM 都 Render 完之後
+        // 這裡因為 Google Material Component 的 value 沒有放好在元件內，所以我們必須這樣額外給予
         document.getElementById("byMail").value = "byMail"
         document.getElementById("promptRegistered").value = "promptRegistered"
     }
@@ -32,8 +34,9 @@ class ReceiptType extends React.Component {
     }
 
     checkboxHandler = (e) => {
-        // 注意這裡與 9-12-AddressSelector 的 ReceiptType.jsx 的差異，因為 Google Material Component 是個元件，
-        // AttributeName 的具體位置不像一般 HTML 一樣，必須 Render 出來後再去查看
+        // 注意這裡與 9-12-AddressSelector 的 ReceiptType.jsx 的差異，因為 Google Material Component 這個元件的結構，
+        // AttributeName 的具體位置不像一般 HTML 一樣，value 也不在
+        // 因此根據實際位置做出抓取值的調整
         const checkboxParent = e.target.closest('.mdc-checkbox')
         const newValue = e.target.value
         const name = checkboxParent.getAttribute("attributeName")
@@ -105,6 +108,10 @@ class ReceiptType extends React.Component {
                                     </Headline6>
                                     <React.Fragment>
                                         <Checkbox
+                                        // 照 Google Material Component 原本的概念，應該是 name 改為 receiptOptions，
+                                        // 去掉 attritubteName
+                                        // 並且值維持 on 與 off 來判斷是否勾選
+                                        // 這裡為了符合原來的結構，就維持原樣並另用 workaround 的 handler 處理
                                             name="receiptOptions[]"
                                             attributeName="receiptOptions"
                                             nativeControlId='byMail'
