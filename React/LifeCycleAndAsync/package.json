@@ -1,7 +1,11 @@
 {
-  "name": "input-radio-style",
+  "name": "life-cycle-async",
   "version": "1.0.0",
-  "description": "",
+  "description": "progress bar practice project.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SiegeSailor/ReactES6WebPack"
+  },
   "main": "",
   "scripts": {
     "webpack-build": "webpack --mode=development",
@@ -25,14 +29,13 @@
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.15.1",
+    "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "pre-commit": "^1.2.2",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8"
   },
   "dependencies": {
-    "fsevents": "^2.1.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   }
