@@ -1,3 +1,5 @@
+import React from "react"
+import ReactDOM from "react-dom"
 import User from "./user.json"
 import UserEditor from "./UserEditor.jsx"
 import UserVideos from "./UserVideos.jsx"

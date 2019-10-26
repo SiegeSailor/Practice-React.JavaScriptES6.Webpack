@@ -32,11 +32,10 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "pre-commit": "^1.2.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8"
   },
-  "dependencies": {
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2"
-  }
+  "dependencies": {}
 }

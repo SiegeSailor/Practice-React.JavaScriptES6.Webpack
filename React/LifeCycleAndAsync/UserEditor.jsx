@@ -1,3 +1,6 @@
+// 因為有使用 jsx 的 return 方式，因此必須匯入 react，否則這只是 ES6
+import React from "react"
+
 // 注意傳入的方式，這裏不用 key 傳入、變為可以直接解構的方式
 // 因應 hanler 需求已取消，留下註解
 // function UserEditor({ id, description, email, name, handler })

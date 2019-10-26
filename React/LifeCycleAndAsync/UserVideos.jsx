@@ -1,5 +1,9 @@
+// 因為有使用 jsx 的 return 方式，因此必須匯入 react，否則這只是 ES6
+import React from "react"
+
 // 上一層直接傳 videos，這裏直接解構出 videos 下的 key
 // 也可以用 function 建構 stateless component
+
 function UserVideos({ likes }) {
     return (
         <div>
