@@ -25,7 +25,7 @@ class ReceiptType extends React.Component {
 
     removeValueFromArray = (array, value) => {
         return array.filter((element) => {
-            // 如果 values 這個陣列裡面的值依序比較與 value(newValue) 相同，則留下
+            // 如果 values 這個陣列裡面的值依序比較與 value(newValue) 不相同，則留下
             return element != value
         })
     }
