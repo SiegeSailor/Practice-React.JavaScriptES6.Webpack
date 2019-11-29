@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>17-Asynchronous</title>
+    </head>
+    <body>
+        <p>setTimeout 跟 setInterval 是可以作為非同步執行的發起， 可以發現，這兩個是時間結束後才進入排程 ( 跟沒有設時間的比起來 )，
+            若需要將 setTimeout 跟 setInterval 出來的函式與沒有設時間的函式 作排程順序，可以使用
+            callback，也就是將函數作為一個參數傳入，確保是 在被傳入的函數內執行。</p>
+        <p>但使用單純 callback 會產生 callback hell 波動拳，可參考 18 節的解法</p>
+        <p>同時證明 Asynchronousa 跟 Paraellel 不同，不是並列執行，而是請求發出後排程到後面</p>
+        <mark>此章節應觀看影片範例。</mark>
+    </body>
+</html>

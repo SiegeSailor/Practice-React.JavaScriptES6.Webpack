@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>15-HtmlScriptAsyncDefer</title>
+    <!-- 一般讀取方法，讀取完後並執行才繼續讀取下面的內容。即堵塞式。 -->
+    <script src="./15-HtmlScriptAsyncDeferNormal.js"></script>
+    <!-- 讀取時 HTML 繼續解析，但執行時 HTML 會阻塞。讀取後會立即執行。
+        若沒有用 DOMContentLoaded 或 Load，可能會導致 DOM 抓不到 ( 或 document.ready 也可以避免) -->
+    <script src="./15-HtmlScriptAsyncDeferAsync.js" async></script>
+    <!-- 使用 defer 時此 JS 不直接執行，而是等到 HTML 全部解析後才執行。推薦使用。 -->
+    <script src="./15-HtmlScriptAsyncDeferDefer.js" defer></script>
+
+    <!-- 可參考此圖：https://i.stack.imgur.com/wfL82.png -->
+</head>
+<body>
+    <h1>15-HtmlScriptAsyncDefer</h1>
+</body>
+</html>

@@ -1,0 +1,1 @@
+// TODO 打一個 OpenAPI，設置所有 init 和錯誤處置。開 MDN 看 Fetch
