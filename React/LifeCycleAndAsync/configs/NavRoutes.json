@@ -1,0 +1,22 @@
+[
+    {
+        "url": "/React/LifeCycleAndAsync/index.html",
+        "name": "Home page"
+    },
+    {
+        "url": "/React/LifeCycleAndAsync/products/",
+        "name": "Products page"
+    },
+    {
+        "url": "/React/LifeCycleAndAsync/user/",
+        "name": "User page"
+    },
+    {
+        "url": "/React/LifeCycleAndAsync/user/login",
+        "name": "Login Page"
+    },
+    {
+        "url": "/React/LifeCycleAndAsync/cart/",
+        "name": "Cart page"
+    }
+]

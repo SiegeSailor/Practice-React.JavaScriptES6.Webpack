@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        'App': './App.jsx'
+        'App': ['whatwg-fetch', './App.jsx']
     },
     output: {
         // ## 這裡使用載入的、非命名的預設變數值，
@@ -18,8 +18,8 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['@babel/preset-env', '@babel/preset-react'],
-                    plugins: ["@babel/plugin-proposal-class-properties"]
+                    presets: [['@babel/preset-env', {useBuiltIns: "usage", corejs: 3}],'@babel/preset-react'],
+                    plugins: ["@babel/plugin-proposal-class-properties", ["@babel/transform-runtime"]]
                 }
             }
         }]
