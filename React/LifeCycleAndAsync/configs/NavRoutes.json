@@ -1,22 +1,22 @@
 [
     {
-        "url": "/React/LifeCycleAndAsync/index.html",
+        "url": "/",
         "name": "Home page"
     },
     {
-        "url": "/React/LifeCycleAndAsync/products/",
+        "url": "/products/",
         "name": "Products page"
     },
     {
-        "url": "/React/LifeCycleAndAsync/user/",
+        "url": "/user/",
         "name": "User page"
     },
     {
-        "url": "/React/LifeCycleAndAsync/user/login",
+        "url": "/user/login/",
         "name": "Login Page"
     },
     {
-        "url": "/React/LifeCycleAndAsync/cart/",
+        "url": "/cart/",
         "name": "Cart page"
     }
 ]

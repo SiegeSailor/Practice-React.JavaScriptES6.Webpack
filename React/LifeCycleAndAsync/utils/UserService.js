@@ -1,16 +1,16 @@
 // 如果沒有必要，資料就不用露出來，因為這樣外面就可以拿到
 const logInURL = (username, password) => {
-    return `http://127.0.0.1:5501/React/LifeCycleAndAsync/json/${username}.json`
+    return `http://127.0.0.1:5501/json/${username}.json`
 }
 
 // 以下兩個連結是模擬 server 回應，當 server 確定此使用者為登入中時，會回傳使用者資料
 // 而未登入中則回傳空值 (success 模擬成功回傳，failed 模擬失敗回傳，實務上指會有一個URL)
 const getUserSuccessURL = () => {
-    return `http://127.0.0.1:5501/React/LifeCycleAndAsync/json/user1.json`
+    return `http://127.0.0.1:5501/json/user1.json`
 }
 
 const getUserFailedURL = () => {
-    return `http://127.0.0.1:5501/React/LifeCycleAndAsync/json/userfailed.json`
+    return `http://127.0.0.1:5501/json/userfailed.json`
 }
 
 class UserService {

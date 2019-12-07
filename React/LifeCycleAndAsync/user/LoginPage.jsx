@@ -17,11 +17,11 @@ class LoginPage extends Component {
         // this.userService = new UserService();
         // const user = this.userService.getCurrentUser();
         // if (user.id){
-        //     window.location.pathname = "/React/LifeCycleAndAsync/user/"
+        //     window.location.pathname = "/user/"
         // }
         // 將上述程式碼重新包裝於 UserService 中方便其他地方使用，以下是從包裝後的 UserService 取來使用的方法
         // this.userService = new UserService();
-        // this.userService.redirectIfUserLogin("/React/LifeCycleAndAsync/user/")
+        // this.userService.redirectIfUserLogin("/user/")
         // 然而，在真正的產品中，沒有後端是不能做使用者登入狀態這件事的，因此也不可能在這裡取得 user
         // 真正作法見下方的 this.redirectIfLogin
     }
@@ -30,7 +30,7 @@ class LoginPage extends Component {
         // 因為重新導向改由 App.jsx 控制，這個就不需要了
         // this.redirectIfLogin()
         
-        window.history.pushState("", "", "/React/LifeCycleAndAsync/user/login")
+        window.history.pushState("", "", "/user/login/")
     }
 
     // redirectIfLogin = async () => {
@@ -38,7 +38,7 @@ class LoginPage extends Component {
     //     try {
     //         await userService.getUserFromServer()
     //         // 因為使用者狀態改由 App.jsx 控制，不再依賴 UserService 做使用者狀態檢測了
-    //         // userService.redirectIfUserLogin(`/React/LifeCycleAndAsync/user/`)
+    //         // userService.redirectIfUserLogin(`/user/`)
     //     } catch (error) {
     //         this.showError(error)
     //     }
@@ -53,7 +53,7 @@ class LoginPage extends Component {
             await userService.logIn(this.state.username, this.state.password);
             
             // 因為使用者狀態改由 App.jsx 控制，不再依賴 UserService 做使用者狀態檢測了
-            // userService.redirectIfUserLogin("/React/LifeCycleAndAsync/user/")
+            // userService.redirectIfUserLogin("/user/")
         } catch(error) {
             this.showError(error)
         }

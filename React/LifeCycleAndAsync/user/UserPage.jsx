@@ -70,7 +70,7 @@ class UserPage extends React.Component {
         // lifecycle，此 lifecycle 此在虛擬 DOM 繪製完成後，也就是初始時 fetch 等載入資料應在此階段
 
         // 改變網址但不會重新導向
-        window.history.pushState("", "", "/React/LifeCycleAndAsync/user/")
+        window.history.pushState("", "", "/user/")
     }
 
     shouldComponentUpdate = (nextProps, nextState, nextContext) => {
@@ -99,7 +99,7 @@ class UserPage extends React.Component {
     // fetchData = async () => {
 
     //     try {
-    //         // const response = await fetch(`http://127.0.0.1:5501/React/LifeCycleAndAsync/json/user1.json`);
+    //         // const response = await fetch(`http://127.0.0.1:5501/json/user1.json`);
     //         // if (!response.ok){
     //         //     throw Error(response.statusText)
     //         // }
@@ -120,7 +120,7 @@ class UserPage extends React.Component {
     //     }
 
 
-        // fetch(`http://127.0.0.1:5501/React/LifeCycleAndAsync/json/user1.json`).then((response) => {
+        // fetch(`http://127.0.0.1:5501/json/user1.json`).then((response) => {
         //     if (response.ok) {
         //         return response.json()
         //     } else {

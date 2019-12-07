@@ -1,5 +1,5 @@
 const productsUrl = () => {
-    return `http://127.0.0.1:5501/React/LifeCycleAndAsync/json/products.json`
+    return `http://127.0.0.1:5501/json/products.json`
 }
 
 class ProductService {

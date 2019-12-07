@@ -33,11 +33,11 @@ class App extends Component {
         // 因為這裡是在 constructor 內，是程式碼建立後就建立的物件，
         // 因此在一開始就把值傳入，後續的 state 變更是沒辦法繼續影響的
         // this.pages = {
-        //     "/React/LifeCycleAndAsync/index.html": <HomePage/>,
-        //     "/React/LifeCycleAndAsync/products/": <ProductsPage></ProductsPage>,
-        //     "/React/LifeCycleAndAsync/user/": <UserPage user={this.state.user}></UserPage>,
-        //     "/React/LifeCycleAndAsync/user/login/": <LoginPage user={this.state.user} userService={userService}></LoginPage>,
-        //     "/React/LifeCycleAndAsync/cart/": <CartPage></CartPage>
+        //     "index.html": <HomePage/>,
+        //     "/products/": <ProductsPage></ProductsPage>,
+        //     "/user/": <UserPage user={this.state.user}></UserPage>,
+        //     "/user/login/": <LoginPage user={this.state.user} userService={userService}></LoginPage>,
+        //     "/cart/": <CartPage></CartPage>
         // }
 
         userService.register((user) => {
@@ -56,11 +56,11 @@ class App extends Component {
     getPath = (key) => {
         // 因應上方 this.pages 因為 props 傳入後無法因應 state 變更而改變的寫法
         const path = {
-            "/React/LifeCycleAndAsync/index.html": <HomePage/>,
-            "/React/LifeCycleAndAsync/products/": <ProductsPage products={this.state.products} productService={productService}></ProductsPage>,
-            "/React/LifeCycleAndAsync/user/": <UserPage user={this.state.user}></UserPage>,
-            "/React/LifeCycleAndAsync/user/login/": <LoginPage user={this.state.user} userService={userService}></LoginPage>,
-            "/React/LifeCycleAndAsync/cart/": <CartPage></CartPage>
+            "/": <HomePage/>,
+            "/products/": <ProductsPage products={this.state.products} productService={productService}></ProductsPage>,
+            "/user/": <UserPage user={this.state.user}></UserPage>,
+            "/user/login/": <LoginPage user={this.state.user} userService={userService}></LoginPage>,
+            "/cart/": <CartPage></CartPage>
         }
         return path[key]
     }
@@ -73,13 +73,13 @@ class App extends Component {
         let page = this.getPath(this.state.path)
         if (this.state.user.id){
             // page = <UserPage ></UserPage>
-            page = this.getPath("/React/LifeCycleAndAsync/user/")
+            page = this.getPath("/user/")
         }
 
         // 解決直接進入 UserPage 卻因為沒登入而沒有使用者狀態而報錯的情況
-        if (this.state.path == "/React/LifeCycleAndAsync/user/" && !this.state.user.id){
+        if (this.state.path == "/user/" && !this.state.user.id){
             // page = <LoginPage user={this.state.user} userService={userService}></LoginPage>
-            page = this.getPath("/React/LifeCycleAndAsync/user/login/")
+            page = this.getPath("/user/login/")
         }
 
         return (
