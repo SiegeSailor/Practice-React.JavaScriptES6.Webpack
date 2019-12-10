@@ -27,6 +27,10 @@ class UserService {
         // 或是 this.currentUser = this.constructor.defaultUser;
     }
 
+    isLoggedIn = () => {
+        return this.currentUser.id > 0
+    }
+
     getCurrentUser = () => {
         return this.currentUser;
     }
