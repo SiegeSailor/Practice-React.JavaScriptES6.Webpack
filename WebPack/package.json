@@ -2,11 +2,23 @@
     "name": "progressbar-babel",
     "version": "1.0.0",
     "scripts": {
-        "build": "babel src -d lib"
+        "build": "webpack --config webpack.config.js",
+        "dev-build": "npm run js & npm run sass",
+        "dev-watch": "npm run js-watch & npm run sass-watch",
+        "js": "babel src -d lib",
+        "js-watch": "babel --watch src -d lib",
+        "sass": "sass scss:css",
+        "sass-watch": "sass --watch scss:css"
     },
     "devDependencies": {
         "@babel/cli": "^7.6.0",
-        "@babel/core": "^7.6.0",
-        "@babel/preset-env": "^7.6.0"
+        "@babel/core": "^7.7.5",
+        "@babel/preset-env": "^7.6.0",
+        "babel-loader": "^8.0.6",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10"
+    },
+    "dependencies": {
+        "sass": "^1.23.7"
     }
 }
