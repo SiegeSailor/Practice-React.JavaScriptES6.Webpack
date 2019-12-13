@@ -1,4 +1,5 @@
 import tool from "./tool.js";
+import url from "../scss/main.scss"
 
 let test = 1;
 const test2 = 2;
