@@ -1,0 +1,15 @@
+.main {
+  color: black;
+}
+.main .title {
+  font-size: 20px;
+}
+.main .title div {
+  background: white;
+}
+.main .title p {
+  font-size: 21px;
+}
+.main .title h1 {
+  font-weight: 500;
+}
