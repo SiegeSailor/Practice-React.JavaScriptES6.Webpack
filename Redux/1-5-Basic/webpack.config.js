@@ -30,7 +30,7 @@ module.exports = {
                 // 若 useBuiltIns 為 usage 則不需要 import 以上兩項
 
                 // 而 regenerator-runtime/runtime 需要安裝 @babel/@runtime 和/或 @babel/plugin-transform-runtime 來使用
-                presets: [['@babel/preset-env', {useBuiltIns: "entry", corejs: 3}],
+                presets: [['@babel/preset-env', {useBuiltIns: "usage", corejs: 3}],
                  '@babel/preset-react'],
                 // 此 plugin 目的在於編譯 class 內的 arrow function
                 plugins: ['@babel/plugin-proposal-class-properties',
