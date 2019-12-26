@@ -58,7 +58,8 @@ class UserPage extends React.Component {
     // }
 
     componentDidMount = () => {
-        // # 表示在虛擬 DOM 繪製完成後，在這裡可以抓到 ref 的 current 物件 # 什麼會用到 ref 和抓在虛擬 DOM 繪製後？
+        // # 表示在虛擬 DOM 繪製完成後，在這裡可以抓到 ref 的 current 物件
+        // # 什麼會用到 ref 和抓在虛擬 DOM 繪製後？
         // 1. input
         // 2. UI 動作，通常建立在原生 DOM 下
         // 3. HTML Canvas
@@ -66,8 +67,9 @@ class UserPage extends React.Component {
         // 5. video audio image
         // 6. lazy load
         // 7. focus
-        // 8. 自己建立出來的 component 是無法在引用他的層中使用 ref 的，必須在該 component 中使用 state 改變時不會到此
-        // lifecycle，此 lifecycle 此在虛擬 DOM 繪製完成後，也就是初始時 fetch 等載入資料應在此階段
+        // 8. 自己建立出來的 component 是無法在引用他的層中使用 ref 的，必須在該 component 中
+        // 使用 state 改變時不會到此lifecycle，
+        // 此 lifecycle 此在虛擬 DOM 繪製完成後，也就是初始時 fetch 等載入資料應在此階段
 
         // 改變網址但不會重新導向
         window.history.pushState("", "", "/user/")
@@ -139,9 +141,10 @@ class UserPage extends React.Component {
         event.preventDefault();
         console.log("Click")
         // # 當一個 DOM 物件創建後，id 會自動成為 window 下的物件，此時我們可使用 submit() 來使他提交
-        // window.thisForm.submit(); # 但通常而言，我們應該先取得該 DOM 再執行 const thisFormDOM =
-        // document.getElementById("thisForm") thisFormDOM.submit(); # 而在 React 中，我們可以創造
-        // Ref 來指向該物件
+        // window.thisForm.submit();
+        // # 但通常而言，我們應該先取得該 DOM 再執行 const thisFormDOM =
+        // document.getElementById("thisForm") thisFormDOM.submit();
+        // # 而在 React 中，我們可以創造Ref 來指向該物件
         // 1. 首先在 constructor 使用 React.createRef() 來創造
         // 2. 在 render 中用 ref={} 指明要 ref 的物件
         // 3. 在此使用 .current 來指出現在已被創造出的物件，current 即代表是在虛擬 DOM 創造後出現的， 因此若在 constructor
